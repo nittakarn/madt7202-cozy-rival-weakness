@@ -1,0 +1,251 @@
+{
+  "run_date": "2026-10-13",
+  "period": [
+    "2019-09-14",
+    "2026-10-13"
+  ],
+  "data": {
+    "steamspy_list": 779,
+    "games": 15,
+    "reviews": 3407,
+    "by_language": {
+      "english": 3400,
+      "thai": 7
+    },
+    "game_list": [
+      "Tiny Glade",
+      "A Little to the Left",
+      "Little Kitty, Big City",
+      "Kind Words (lo fi chill beats to write to)",
+      "Cozy Grove",
+      "Melatonin",
+      "Alba: A Wildlife Adventure",
+      "Sticky Business",
+      "Good Pizza, Great Pizza - Cooking Simulator Game",
+      "Minami Lane",
+      "My Dream Setup",
+      "Lil Gator Game",
+      "Cats Organized Neatly",
+      "LEGO Builder's Journey",
+      "Snake Pass"
+    ]
+  },
+  "generic": {
+    "Bugs & Performance": 0.09,
+    "Price": 0.219,
+    "Too short / Boring": 0.271,
+    "Cozy words (seed)": 0.269
+  },
+  "params": {
+    "link_share": 0.1,
+    "min_reviews_per_link": 5,
+    "n_per_lang": 300,
+    "langs": [
+      "english",
+      "thai"
+    ]
+  },
+  "graph": {
+    "nodes": 21,
+    "game_nodes": 12,
+    "topic_nodes": 9,
+    "edges": 31
+  },
+  "winner": {
+    "topic": "Story & Characters",
+    "games": 7,
+    "reviews": 430,
+    "biggest_game": "Cozy Grove",
+    "biggest_share": 0.195,
+    "linked_games": "Alba: A Wildlife Adventure, Cozy Grove, Kind Words (lo fi chill beats to write to), LEGO Builder's Journey, Lil Gator Game, Little Kitty, Big City, Sticky Business"
+  },
+  "backup": {
+    "topic": "Progression",
+    "games": 5,
+    "reviews": 434,
+    "biggest_game": "Cozy Grove",
+    "biggest_share": 0.247,
+    "linked_games": "Cozy Grove, Good Pizza, Great Pizza - Cooking Simulator Game, Little Kitty, Big City, Minami Lane, Sticky Business"
+  },
+  "loudest": {
+    "topic": "Progression",
+    "games": 5,
+    "reviews": 434,
+    "biggest_game": "Cozy Grove",
+    "biggest_share": 0.247,
+    "linked_games": "Cozy Grove, Good Pizza, Great Pizza - Cooking Simulator Game, Little Kitty, Big City, Minami Lane, Sticky Business"
+  },
+  "topics": [
+    {
+      "topic": "Story & Characters",
+      "games": 7,
+      "reviews": 430,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.195,
+      "linked_games": "Alba: A Wildlife Adventure, Cozy Grove, Kind Words (lo fi chill beats to write to), LEGO Builder's Journey, Lil Gator Game, Little Kitty, Big City, Sticky Business"
+    },
+    {
+      "topic": "Progression",
+      "games": 5,
+      "reviews": 434,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.247,
+      "linked_games": "Cozy Grove, Good Pizza, Great Pizza - Cooking Simulator Game, Little Kitty, Big City, Minami Lane, Sticky Business"
+    },
+    {
+      "topic": "Crafting & Building",
+      "games": 4,
+      "reviews": 283,
+      "biggest_game": "Tiny Glade",
+      "biggest_share": 0.413,
+      "linked_games": "Cozy Grove, LEGO Builder's Journey, Minami Lane, Tiny Glade"
+    },
+    {
+      "topic": "Decoration",
+      "games": 4,
+      "reviews": 267,
+      "biggest_game": "My Dream Setup",
+      "biggest_share": 0.27,
+      "linked_games": "Cozy Grove, Minami Lane, My Dream Setup, Tiny Glade"
+    },
+    {
+      "topic": "Management",
+      "games": 3,
+      "reviews": 214,
+      "biggest_game": "Sticky Business",
+      "biggest_share": 0.364,
+      "linked_games": "Good Pizza, Great Pizza - Cooking Simulator Game, Minami Lane, Sticky Business"
+    },
+    {
+      "topic": "Fishing & Collecting",
+      "games": 3,
+      "reviews": 203,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.36,
+      "linked_games": "Cozy Grove, Little Kitty, Big City, Snake Pass"
+    },
+    {
+      "topic": "Exploration",
+      "games": 3,
+      "reviews": 155,
+      "biggest_game": "Little Kitty, Big City",
+      "biggest_share": 0.297,
+      "linked_games": "Alba: A Wildlife Adventure, Lil Gator Game, Little Kitty, Big City"
+    },
+    {
+      "topic": "Animals & Pets",
+      "games": 1,
+      "reviews": 113,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.257,
+      "linked_games": "Alba: A Wildlife Adventure"
+    },
+    {
+      "topic": "Farming",
+      "games": 1,
+      "reviews": 90,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.4,
+      "linked_games": "Cozy Grove"
+    },
+    {
+      "topic": "Cooking",
+      "games": 0,
+      "reviews": 61,
+      "biggest_game": "Cozy Grove",
+      "biggest_share": 0.344,
+      "linked_games": ""
+    },
+    {
+      "topic": "Co-op",
+      "games": 0,
+      "reviews": 7,
+      "biggest_game": "Little Kitty, Big City",
+      "biggest_share": 0.429,
+      "linked_games": ""
+    }
+  ],
+  "alternatives": {
+    "generic_kept_winner": "Too short / Boring",
+    "npmi_winner": "Story & Characters",
+    "winner_lines_under_npmi": 6
+  },
+  "robustness": {
+    "sweep_hold": 7,
+    "sweep_total": 9,
+    "loo_hold": 15,
+    "loo_total": 15,
+    "bootstrap": 0.974,
+    "n_boot": 500,
+    "bootstrap_winners": {
+      "Story & Characters": 487,
+      "Progression": 13
+    },
+    "sweep": [
+      {
+        "link_share": 0.05,
+        "min_reviews": 3,
+        "winner": "Progression",
+        "second": "Story & Characters",
+        "win_games": 9
+      },
+      {
+        "link_share": 0.05,
+        "min_reviews": 5,
+        "winner": "Progression",
+        "second": "Story & Characters",
+        "win_games": 9
+      },
+      {
+        "link_share": 0.05,
+        "min_reviews": 8,
+        "winner": "Story & Characters",
+        "second": "Progression",
+        "win_games": 9
+      },
+      {
+        "link_share": 0.1,
+        "min_reviews": 3,
+        "winner": "Story & Characters",
+        "second": "Progression",
+        "win_games": 7
+      },
+      {
+        "link_share": 0.1,
+        "min_reviews": 5,
+        "winner": "Story & Characters",
+        "second": "Progression",
+        "win_games": 7
+      },
+      {
+        "link_share": 0.1,
+        "min_reviews": 8,
+        "winner": "Story & Characters",
+        "second": "Progression",
+        "win_games": 7
+      },
+      {
+        "link_share": 0.15,
+        "min_reviews": 3,
+        "winner": "Story & Characters",
+        "second": "Decoration",
+        "win_games": 6
+      },
+      {
+        "link_share": 0.15,
+        "min_reviews": 5,
+        "winner": "Story & Characters",
+        "second": "Decoration",
+        "win_games": 6
+      },
+      {
+        "link_share": 0.15,
+        "min_reviews": 8,
+        "winner": "Story & Characters",
+        "second": "Decoration",
+        "win_games": 6
+      }
+    ]
+  },
+  "decision": "turn Story & Characters into our strength"
+}
