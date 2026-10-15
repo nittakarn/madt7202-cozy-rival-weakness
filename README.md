@@ -1,37 +1,44 @@
-# madt7202-cozy-rival-weakness
+# MADT 7202 — Cozy-rival weakness (rebuilt)
 
-**Which Rival Weakness Should Our New Cozy Game Turn Into Its Strength?**
-A game × complaint network from Steam negative reviews of 15 rival cozy indie games (MADT 7202 mid-term).
+This branch rebuilds the earlier submission rather than silently editing it. It keeps the same decision question and 15-rival comparison frame, but replaces the old bare-keyword coding with a documented complaint-coding rule and creates a new frozen, de-identified snapshot.
 
-## The idea
-Read what players complain about in rival cozy games. Find the complaint that appears in the **most different games**. That is a weakness of the whole market, so it is the best one for a new game to turn into its strength. The decision-maker is the head of studio, before pre-production.
+## Decision
 
-A table only shows the *loudest* complaint, and that can come from one big game. The network shows how many *different* rivals share each complaint: the **degree** of each complaint node.
+**Turn Story & Characters into the new cozy game’s strength.** In the frozen run, the topic qualifies in 4 of 15 rival games. `Progression & Pacing` has more coded matches but qualifies in 3 rivals, so it is the loudest issue rather than the broadest shared weakness.
 
-## Data
-| What | Source | Permission |
-|---|---|---|
-| 15 most-reviewed paid games tagged *Cozy* + *Indie* (≥ 1,000 reviews) | [SteamSpy public API](https://steamspy.com/api.php) | Public documented API, no stated licence; the 1 request/second limit is respected |
-| Up to 300 newest **negative** reviews per game, per language (English, Thai) | Steam store public endpoint `appreviews` | Public store data. Only text, language and date are kept; no usernames or Steam IDs |
+The one-page submission is [report/MADT7202_MidTerm_Rebuilt_Nittakarn.pdf](report/MADT7202_MidTerm_Rebuilt_Nittakarn.pdf).
 
-Sampling bias: over-represents engaged players who write reviews and recent reviews. Under-represents players who quit silently and players writing in other languages (word lists exist for English and Thai only).
+## What changed from the earlier report
 
-## Graph
-- 🟠 game nodes · 🔵 complaint-topic nodes (course-sample colours) (decoration, farming, story, progression…)
-- **Line:** ≥ 10 % of a game's negative reviews complain about the topic (≥ 5 reviews); weight = conditional, count(game, topic) / count(game) (Ch 6, Scheme 4)
-- **Removed before ranking:** bugs/performance, price, "too short/boring", cozy words. Every game gets these, so they are generic.
-- **Rule (fixed in advance):** pick the topic linked to the most games; ties are broken by number of complaints
-- **Compared with:** the loudest topic (table answer), generic complaints kept in, and NPMI instead of share per game
-- **Robustness:** 9 cutoff versions (5/10/15 % × 3/5/8 reviews), leave-one-game-out (15 runs), 500× bootstrap
-- **Accuracy check:** `audit_labelled.csv`. 100 random matches; 60 could be judged (in the other 40 the keyword sat past the 400 saved characters). 68% correct overall, Story & Characters 77%, Progression 73%.
+- The old method counted bare words such as `story` or `progress` anywhere in a negative review. This version requires either a complaint phrase or a topic word within roughly ten words of a negative cue in the same sentence.
+- The graph’s edge definition is explicit: at least 5 coded reviews and at least 5% of that game’s sampled negative reviews.
+- The report says exactly what the edges mean: a game–complaint relationship, **not** a direct game–game relationship.
+- Inputs and derived outputs are retained. Raw review text is not published; the frozen snapshot contains only game, app ID, review ID, language, timestamp, text hash, and codes.
 
-## Files in this repo
-- `MADT7202_MidTerm_Report.pdf` – the one-page A4
-- `Cozy_Rival_Weakness.ipynb` – the full analysis, run in Colab with outputs
-- `stats.json` – every number in the A4
-- `topic_table.csv` · `edges.csv` · `robustness_sweep.csv` – the graph, the side table and the cutoff test
-- `audit_labelled.csv` – the hand check (y / n / unclear, with a reason per row)
-- `fig_report.png` + `make_report_fig.py` – the A4 figure and the script that draws it
+## Data, scope and access basis
+
+- **Frame:** the 15 Steam games used in the prior submission, fixed before the new collection.
+- **Source:** recent negative reviews from Steam’s public `appreviews` endpoint, English and Thai, up to 200 per game/language.
+- **Run:** 2,270 reviews; English 2,266 and Thai 4; 2019-09-14 through 2026-10-15.
+- **Access basis:** public endpoint used for an educational course analysis, paced at about one page request per second. No account credentials, usernames, profile URLs, or Steam IDs are saved or published.
+- **Limits:** recent, self-selected and English-heavy negative reviews are not representative of every player; coding identifies associations, not causal effects.
 
 ## Reproduce
-Open `Cozy_Rival_Weakness.ipynb` in Colab and choose *Runtime → Run all*. No API key is needed. The first run takes about 5–10 minutes. The notebook saves its result files to `outputs/` and downloads them as `outputs.zip`. Raw reviews (`data/`) are not shared.
+
+```bash
+python3 -m pytest -q tests/test_rebuild_analysis.py
+python3 rebuild_analysis.py
+python3 build_report.py
+```
+
+`rebuild_analysis.py` refetches a current public snapshot, so a later run may produce different counts. The submitted report is reproducible from the committed `data/review_snapshot.*` and `outputs/` artifacts; its SHA-256 is printed in the PDF footer and `outputs/stats.json`.
+
+## Repository contents
+
+- `rebuild_analysis.py` — collection, coding, edge construction, ranking, and robustness sweep
+- `build_report.py` — one-page A4 report generator
+- `data/review_snapshot.*` — de-identified frozen data snapshot
+- `outputs/edges.csv`, `topic_table.csv`, `robustness_sweep.csv`, `stats.json` — derived analysis outputs
+- `tests/test_rebuild_analysis.py` — checks that bare feature mentions are not coded as complaints
+
+The original report and notebook remain in the history of the default branch for comparison.

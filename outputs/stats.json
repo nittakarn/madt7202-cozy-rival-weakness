@@ -1,0 +1,33 @@
+{
+  "run_utc": "2026-10-15T09:15:11.732424+00:00",
+  "question": "Which rival weakness should our new cozy game turn into its strength?",
+  "sample": {
+    "games": 15,
+    "reviews": 2270,
+    "languages": {
+      "english": 2266,
+      "thai": 4
+    },
+    "period": [
+      "2019-09-14",
+      "2026-10-15"
+    ],
+    "per_language_cap": 200
+  },
+  "edge_definition": "A game-topic edge requires at least 5 coded negative reviews and at least 5% of that game's sampled negative reviews.",
+  "winner": {
+    "topic": "Story & Characters",
+    "games": 4,
+    "matches": 51
+  },
+  "generic_rates": {
+    "Technical problems": 0.074,
+    "Price/value": 0.0916,
+    "Short/low content": 0.0304
+  },
+  "snapshot_sha256": "de2434556218bd7fd2777012d2dc7c8a039828c584095753c08720625d39dd69",
+  "notes": [
+    "Review text is not published; the snapshot keeps only de-identified IDs, timestamps, language, a text hash, and codes.",
+    "A coding hit is a complaint phrase, not a bare feature mention. Hand-check audit still required before decision claim."
+  ]
+}
